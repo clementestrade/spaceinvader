@@ -1,5 +1,6 @@
 package fr.unilim.iut.spacesinvader;
 
+import fr.unilim.iut.spacesinvader.utils.HorsEspaceJeuException;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
@@ -34,7 +35,12 @@ public class SpaceInvadersTest {
 		"...............\n" + 
 		"...............\n" + 
 		"...............\n" + 
-		"...............\n" , spaceInvaders.toString());
+		".......V.......\n" , spaceInvaders.toString());
+	}
+   @Test(expected = HorsEspaceJeuException.class)
+	public void test_unNouveauVaisseauEstPositionneHorsEspaceJeuTropADroite_UneExceptionEstLevee() throws Exception {
+		SpaceInvaders spaceinvaders = new SpaceInvaders(15, 10);
+		spaceinvaders.positionnerUnNouveauVaisseau(16,9);
 	}
 
    }
